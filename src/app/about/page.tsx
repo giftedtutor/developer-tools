@@ -7,7 +7,7 @@ import { tools } from "@/lib/tools";
 export const metadata: Metadata = createMetadata({
   title: "About",
   description:
-    "About CodeSplitters — free, privacy-friendly online developer tools for formatting, encoding, and testing.",
+    "About CS Dev Tools — free, privacy-friendly online developer tools for formatting, encoding, and testing.",
   path: "/about",
 });
 

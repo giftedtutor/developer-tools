@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = createMetadata({
   title: "Contact",
   description:
-    "Contact CodeSplitters for support, partnerships, or privacy questions. Email thecodesplitters@gmail.com.",
+    "Contact CS Dev Tools for support, partnerships, or privacy questions. Email thecodesplitters@gmail.com.",
   path: "/contact",
 });
 

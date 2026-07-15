@@ -72,7 +72,7 @@ function toWords(input: string) {
 }
 
 export function CaseConverterTool() {
-  const [input, setInput] = useState("helloCode Splitters");
+  const [input, setInput] = useState("helloCS Dev Tools");
   const words = toWords(input);
 
   const cases: Record<string, string> = {

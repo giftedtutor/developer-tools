@@ -8,7 +8,7 @@ import { Panel, TextArea, ModeTabs } from "../shared";
 export function YamlConverterTool() {
   const [mode, setMode] = useState<"yaml-json" | "json-yaml">("yaml-json");
   const [input, setInput] = useState(
-    "name: CodeSplitters\nfeatures:\n  - privacy\n  - speed\n",
+    "name: CS Dev Tools\nfeatures:\n  - privacy\n  - speed\n",
   );
 
   const { output, ok, message } = useMemo(() => {

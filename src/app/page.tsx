@@ -167,12 +167,12 @@ export default function HomePage() {
       <section className="border-y border-slate-200 bg-white/60">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-slate-900">
-            Why CodeSplitters?
+            Why CS Dev Tools?
           </h2>
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             <p className="text-sm leading-relaxed text-slate-600">
               Most browser “devtools” sites bounce you through popups or capture
-              sensitive paste data. CodeSplitters is built for everyday
+              sensitive paste data. CS Dev Tools is built for everyday
               engineering work: clean UI, fast client-side transforms, and SEO
               pages that stay useful for humans — not just crawlers.
             </p>

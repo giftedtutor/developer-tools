@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = createMetadata({
   title: "Privacy Policy",
   description:
-    "Privacy Policy for CodeSplitters developer tools, including Google AdSense, cookies, and data processing practices.",
+    "Privacy Policy for CS Dev Tools, including Google AdSense, cookies, and data processing practices.",
   path: "/privacy",
   keywords: ["privacy policy", "adsense", "cookies", "gdpr"],
 });

@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { siteConfig } from "@/lib/site";
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <Link
       href="/"
       className={`group inline-flex items-center gap-2.5 ${className}`}
-      aria-label="CodeSplitters home"
+      aria-label={`${siteConfig.name} home`}
     >
       <span className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl bg-[linear-gradient(145deg,#0f766e_0%,#115e59_55%,#0c4a6e_100%)] shadow-[0_8px_20px_-10px_rgba(15,118,110,0.7)] ring-1 ring-teal-700/30">
         <svg
@@ -41,10 +42,10 @@ export function Logo({ className = "" }: { className?: string }) {
       </span>
       <span className="flex flex-col leading-none">
         <span className="font-[family-name:var(--font-display)] text-[1.05rem] font-semibold tracking-tight text-slate-900">
-          Code<span className="text-teal-700">Splitters</span>
+          CS <span className="text-teal-700">Dev Tools</span>
         </span>
         <span className="mt-0.5 text-[0.68rem] font-medium uppercase tracking-[0.14em] text-slate-500">
-          Developer Tools
+          Free &amp; private
         </span>
       </span>
     </Link>

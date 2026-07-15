@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "CodeSplitters",
+  name: "CS Dev Tools",
   tagline: "Fast, private developer tools in your browser",
   description:
     "Free online developer tools for formatting, validating, encoding, and transforming JSON, SQL, YAML, JWT, Base64, Markdown, and more. All processing runs locally in your browser.",

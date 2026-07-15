@@ -47,7 +47,7 @@ export default function OpenGraphImage() {
           >
             {"</>"}
           </div>
-          CodeSplitters
+          CS Dev Tools
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
           <div

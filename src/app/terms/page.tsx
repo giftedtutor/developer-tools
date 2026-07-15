@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = createMetadata({
   title: "Terms of Service",
   description:
-    "Terms of Service for using CodeSplitters free online developer tools.",
+    "Terms of Service for using CS Dev Tools free online developer tools.",
   path: "/terms",
 });
 

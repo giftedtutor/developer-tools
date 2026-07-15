@@ -7,7 +7,7 @@ import { Panel, TextArea, ModeTabs, Field } from "./shared";
 
 export function Base64Tool() {
   const [mode, setMode] = useState<"encode" | "decode">("encode");
-  const [input, setInput] = useState("Hello, CodeSplitters!");
+  const [input, setInput] = useState("Hello, CS Dev Tools!");
 
   const { output, ok, message } = useMemo(() => {
     if (!input) return { output: "", ok: null as boolean | null, message: "" };
@@ -130,7 +130,7 @@ export function JwtDecoderTool() {
 }
 
 export function HashGeneratorTool() {
-  const [input, setInput] = useState("CodeSplitters");
+  const [input, setInput] = useState("CS Dev Tools");
   const [hashes, setHashes] = useState({
     md5: "",
     sha1: "",

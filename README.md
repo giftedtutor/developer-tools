@@ -1,4 +1,4 @@
-# CodeSplitters — Developer Tools
+# CS Dev Tools
 
 Free, privacy-friendly online developer tools built with Next.js.
 
