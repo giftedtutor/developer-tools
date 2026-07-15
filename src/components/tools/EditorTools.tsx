@@ -1,8 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { marked } from "marked";
-import DOMPurify from "isomorphic-dompurify";
 import { ToolActions, StatusBadge } from "@/components/ToolControls";
 import { Panel, TextArea, Field } from "./shared";
 
@@ -15,7 +13,11 @@ export function RegexTesterTool() {
 
   const result = useMemo(() => {
     if (!pattern) {
-      return { ok: null as boolean | null, message: "", matches: [] as RegExpMatchArray[], error: "" };
+      return {
+        ok: null as boolean | null,
+        message: "",
+        matches: [] as RegExpMatchArray[],
+      };
     }
     try {
       const re = new RegExp(pattern, flags);
@@ -24,14 +26,12 @@ export function RegexTesterTool() {
         ok: true,
         message: `${matches.length} match${matches.length === 1 ? "" : "es"}`,
         matches,
-        error: "",
       };
     } catch (e) {
       return {
         ok: false,
         message: e instanceof Error ? e.message : "Invalid regex",
-        matches: [],
-        error: e instanceof Error ? e.message : "Invalid regex",
+        matches: [] as RegExpMatchArray[],
       };
     }
   }, [pattern, flags, text]);
@@ -114,40 +114,6 @@ export function RegexTesterTool() {
           </table>
         </div>
       )}
-    </div>
-  );
-}
-
-export function MarkdownEditorTool() {
-  const [input, setInput] = useState(
-    "# Welcome\n\nWrite **Markdown** on the left and preview it on the right.\n\n- Fast\n- Private\n- Free\n",
-  );
-
-  const html = useMemo(() => {
-    const raw = marked.parse(input, { async: false }) as string;
-    return DOMPurify.sanitize(raw);
-  }, [input]);
-
-  return (
-    <div className="space-y-4">
-      <div className="flex justify-end">
-        <ToolActions
-          onClear={() => setInput("")}
-          copyValue={input}
-          downloadName="document.md"
-        />
-      </div>
-      <div className="grid gap-4 lg:grid-cols-2">
-        <Panel title="Markdown">
-          <TextArea value={input} onChange={setInput} rows={18} />
-        </Panel>
-        <Panel title="Preview">
-          <div
-            className="prose-preview tool-textarea min-h-[420px] overflow-auto"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-        </Panel>
-      </div>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ToolDefinition } from "@/lib/tools";
 import { categoryLabels } from "@/lib/tools";
 import { AdSlot } from "./AdSlot";
+import { ToolIcon } from "./ToolIcon";
 
 export function ToolShell({
   tool,
@@ -10,8 +11,6 @@ export function ToolShell({
   tool: ToolDefinition;
   children: React.ReactNode;
 }) {
-  const Icon = tool.icon;
-
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
       <nav aria-label="Breadcrumb" className="mb-6 text-sm text-slate-500">
@@ -35,7 +34,7 @@ export function ToolShell({
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div className="max-w-2xl">
           <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-teal-50 px-3 py-1 text-xs font-medium text-teal-800 ring-1 ring-teal-100">
-            <Icon className="h-3.5 w-3.5" />
+            <ToolIcon name={tool.icon} className="h-3.5 w-3.5" />
             {categoryLabels[tool.category]}
           </div>
           <h1 className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">

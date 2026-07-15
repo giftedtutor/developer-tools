@@ -1,29 +1,3 @@
-import type { LucideIcon } from "lucide-react";
-import {
-  Braces,
-  CheckCircle2,
-  FileCode2,
-  FileJson2,
-  FileType2,
-  Database,
-  Binary,
-  KeyRound,
-  Hash,
-  Fingerprint,
-  Regex,
-  Link2,
-  Minimize2,
-  Paintbrush,
-  Sparkles,
-  FileText,
-  Clock,
-  CaseSensitive,
-  Diff,
-  Palette,
-  Key,
-  Type,
-} from "lucide-react";
-
 export type ToolCategory =
   | "formatters"
   | "converters"
@@ -32,13 +6,37 @@ export type ToolCategory =
   | "testers"
   | "editors";
 
+export type ToolIconName =
+  | "braces"
+  | "check"
+  | "file-code"
+  | "file-json"
+  | "file-type"
+  | "database"
+  | "binary"
+  | "key-round"
+  | "hash"
+  | "fingerprint"
+  | "regex"
+  | "link"
+  | "minimize"
+  | "paintbrush"
+  | "sparkles"
+  | "file-text"
+  | "clock"
+  | "case"
+  | "diff"
+  | "palette"
+  | "key"
+  | "type";
+
 export interface ToolDefinition {
   slug: string;
   name: string;
   shortDescription: string;
   description: string;
   category: ToolCategory;
-  icon: LucideIcon;
+  icon: ToolIconName;
   keywords: string[];
   featured?: boolean;
 }
@@ -60,7 +58,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Paste messy JSON and instantly format it with readable indentation. Validate structure as you type and copy the polished output in one click.",
     category: "formatters",
-    icon: Braces,
+    icon: "braces",
     keywords: ["json", "pretty print", "beautify", "format json"],
     featured: true,
   },
@@ -71,7 +69,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Check whether your JSON is valid, see precise error messages with line context, and fix issues before they reach production.",
     category: "testers",
-    icon: CheckCircle2,
+    icon: "check",
     keywords: ["json", "validate", "lint", "syntax"],
     featured: true,
   },
@@ -82,7 +80,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Format nested XML documents with consistent indentation so tags, attributes, and content are easier to inspect and share.",
     category: "formatters",
-    icon: FileCode2,
+    icon: "file-code",
     keywords: ["xml", "pretty print", "format xml"],
   },
   {
@@ -92,7 +90,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Convert YAML to JSON and JSON to YAML with reliable parsing. Ideal for configs, Kubernetes manifests, and API examples.",
     category: "converters",
-    icon: FileType2,
+    icon: "file-type",
     keywords: ["yaml", "yml", "json", "convert"],
     featured: true,
   },
@@ -103,7 +101,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Reformat SQL statements with consistent keywords, clauses, and indentation to keep queries readable in reviews and docs.",
     category: "formatters",
-    icon: Database,
+    icon: "database",
     keywords: ["sql", "query", "pretty print", "format sql"],
     featured: true,
   },
@@ -114,7 +112,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Encode text to Base64 or decode Base64 back to plain text. Useful for tokens, data URLs, and API payloads.",
     category: "encoders",
-    icon: Binary,
+    icon: "binary",
     keywords: ["base64", "encode", "decode"],
     featured: true,
   },
@@ -125,7 +123,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Inspect JSON Web Tokens by decoding the header and payload. Claims stay in your browser — nothing is sent to a server.",
     category: "encoders",
-    icon: KeyRound,
+    icon: "key-round",
     keywords: ["jwt", "token", "decode", "claims"],
     featured: true,
   },
@@ -136,7 +134,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Create cryptographic hashes from text using MD5, SHA-1, SHA-256, and SHA-512 for checksums, fingerprints, and quick verification.",
     category: "generators",
-    icon: Hash,
+    icon: "hash",
     keywords: ["hash", "md5", "sha256", "checksum"],
   },
   {
@@ -146,7 +144,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Generate one or many UUID v4 values instantly for databases, APIs, and unique record IDs.",
     category: "generators",
-    icon: Fingerprint,
+    icon: "fingerprint",
     keywords: ["uuid", "guid", "unique id"],
   },
   {
@@ -156,7 +154,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Write a pattern, add flags, and see matches highlight against sample text in real time with clear match details.",
     category: "testers",
-    icon: Regex,
+    icon: "regex",
     keywords: ["regex", "regexp", "pattern", "match"],
     featured: true,
   },
@@ -167,7 +165,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Percent-encode unsafe characters for query strings and paths, or decode encoded URLs back into readable text.",
     category: "encoders",
-    icon: Link2,
+    icon: "link",
     keywords: ["url", "uri", "encode", "percent encoding"],
   },
   {
@@ -177,7 +175,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Compress HTML markup by stripping comments and unnecessary whitespace to shrink payloads for faster delivery.",
     category: "formatters",
-    icon: Minimize2,
+    icon: "minimize",
     keywords: ["html", "minify", "compress"],
   },
   {
@@ -187,7 +185,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Minify stylesheets by removing comments and extra spaces so CSS bundles stay lean without changing selectors.",
     category: "formatters",
-    icon: Paintbrush,
+    icon: "paintbrush",
     keywords: ["css", "minify", "compress"],
   },
   {
@@ -197,7 +195,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Reformat minified or messy JavaScript with consistent indentation and spacing for easier debugging and review.",
     category: "formatters",
-    icon: Sparkles,
+    icon: "sparkles",
     keywords: ["javascript", "js", "beautify", "format"],
   },
   {
@@ -207,7 +205,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Author Markdown with a live HTML preview. Perfect for README files, docs, and quick content drafts.",
     category: "editors",
-    icon: FileText,
+    icon: "file-text",
     keywords: ["markdown", "md", "preview", "editor"],
     featured: true,
   },
@@ -218,7 +216,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Convert between Unix timestamps and human-readable dates in local time and UTC for logs and APIs.",
     category: "converters",
-    icon: Clock,
+    icon: "clock",
     keywords: ["timestamp", "unix", "epoch", "date"],
   },
   {
@@ -228,7 +226,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Switch text between camelCase, snake_case, kebab-case, PascalCase, and more for clean renaming across codebases.",
     category: "converters",
-    icon: CaseSensitive,
+    icon: "case",
     keywords: ["camelcase", "snake_case", "kebab-case", "pascalcase"],
   },
   {
@@ -238,7 +236,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Compare two blocks of text and spot added, removed, or changed lines quickly for configs, snippets, and drafts.",
     category: "testers",
-    icon: Diff,
+    icon: "diff",
     keywords: ["diff", "compare", "difference"],
   },
   {
@@ -248,7 +246,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Convert colors between HEX, RGB, and HSL formats and preview the selected color instantly.",
     category: "converters",
-    icon: Palette,
+    icon: "palette",
     keywords: ["color", "hex", "rgb", "hsl"],
   },
   {
@@ -258,7 +256,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Create secure random passwords with custom length and character sets for accounts and API secrets.",
     category: "generators",
-    icon: Key,
+    icon: "key",
     keywords: ["password", "security", "random"],
   },
   {
@@ -268,7 +266,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Generate lorem ipsum placeholder copy for mockups, wireframes, and layout testing.",
     category: "generators",
-    icon: Type,
+    icon: "type",
     keywords: ["lorem", "ipsum", "placeholder", "dummy text"],
   },
   {
@@ -278,7 +276,7 @@ export const tools: ToolDefinition[] = [
     description:
       "Convert numbers between binary, octal, decimal, and hexadecimal bases for low-level debugging and interviews.",
     category: "converters",
-    icon: FileJson2,
+    icon: "file-json",
     keywords: ["binary", "hex", "octal", "decimal", "radix"],
   },
 ];
@@ -307,3 +305,18 @@ export function getToolsByCategory(): Record<ToolCategory, ToolDefinition[]> {
     } as Record<ToolCategory, ToolDefinition[]>,
   );
 }
+
+/** Lightweight search records for client bundles (no icon components). */
+export type ToolSearchItem = Pick<
+  ToolDefinition,
+  "slug" | "name" | "shortDescription" | "keywords"
+>;
+
+export const toolSearchIndex: ToolSearchItem[] = tools.map(
+  ({ slug, name, shortDescription, keywords }) => ({
+    slug,
+    name,
+    shortDescription,
+    keywords,
+  }),
+);
