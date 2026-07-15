@@ -1,65 +1,156 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ShieldCheck, Zap, Lock } from "lucide-react";
+import { ToolCard } from "@/components/ToolCard";
+import { AdSlot } from "@/components/AdSlot";
+import { getFeaturedTools, getToolsByCategory, categoryLabels, tools } from "@/lib/tools";
+import { siteConfig } from "@/lib/site";
 
-export default function Home() {
+export default function HomePage() {
+  const featured = getFeaturedTools();
+  const byCategory = getToolsByCategory();
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <>
+      <section className="relative overflow-hidden">
+        <div className="mx-auto max-w-6xl px-4 pb-16 pt-12 sm:px-6 sm:pt-16 lg:px-8 lg:pb-20">
+          <p className="animate-rise text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">
+            {siteConfig.name}
+          </p>
+          <h1 className="animate-rise-delay mt-4 max-w-3xl font-[family-name:var(--font-display)] text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl lg:text-[3.4rem] lg:leading-[1.08]">
+            Developer tools that stay{" "}
+            <span className="text-teal-700">in your browser</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="animate-rise-delay-2 mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
+            Format JSON, decode JWTs, beautify SQL, test regex, and more — free,
+            fast, and private. No signup. No uploads.
+          </p>
+          <div className="animate-rise-delay-2 mt-8 flex flex-wrap gap-3">
+            <Link href="#tools" className="btn-primary px-5 py-2.5">
+              Browse all tools
+            </Link>
+            <Link href="/tools/json-formatter" className="btn-secondary px-5 py-2.5">
+              Open JSON Formatter
+            </Link>
+          </div>
+
+          <div className="mt-12 grid gap-4 sm:grid-cols-3">
+            {[
+              {
+                icon: Zap,
+                title: "Instant",
+                text: "Results update as you type with zero network round-trips for core processing.",
+              },
+              {
+                icon: Lock,
+                title: "Private by design",
+                text: "Your payloads, tokens, and snippets are processed locally in your browser.",
+              },
+              {
+                icon: ShieldCheck,
+                title: "AdSense-ready",
+                text: "Clear policies, contact details, and quality content for a compliant experience.",
+              },
+            ].map(({ icon: Icon, title, text }) => (
+              <div
+                key={title}
+                className="rounded-2xl border border-slate-200/80 bg-white/70 p-5 backdrop-blur"
+              >
+                <Icon className="h-5 w-5 text-teal-700" />
+                <h2 className="mt-3 font-[family-name:var(--font-display)] text-lg font-semibold text-slate-900">
+                  {title}
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <AdSlot slot="home-top" className="mx-auto mb-10 max-w-6xl px-4 sm:px-6 lg:px-8" />
+
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-6 flex items-end justify-between gap-4">
+          <div>
+            <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-slate-900 sm:text-3xl">
+              Popular tools
+            </h2>
+            <p className="mt-2 text-sm text-slate-600">
+              Start with the utilities developers open every day.
+            </p>
+          </div>
+          <Link href="#tools" className="hidden text-sm font-medium text-teal-700 sm:inline">
+            View all →
+          </Link>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {featured.map((tool) => (
+            <ToolCard key={tool.slug} tool={tool} />
+          ))}
+        </div>
+      </section>
+
+      <section id="tools" className="mx-auto max-w-6xl scroll-mt-24 px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mb-8">
+          <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-slate-900 sm:text-3xl">
+            All developer tools
+          </h2>
+          <p className="mt-2 max-w-2xl text-sm text-slate-600">
+            {tools.length} free online utilities for formatting, encoding,
+            generating, and testing — built for responsive phones and desktops.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="space-y-12">
+          {(Object.keys(byCategory) as Array<keyof typeof byCategory>).map(
+            (category) => {
+              const list = byCategory[category];
+              if (!list.length) return null;
+              return (
+                <div key={category}>
+                  <h3 className="mb-4 text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
+                    {categoryLabels[category]}
+                  </h3>
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {list.map((tool) => (
+                      <ToolCard key={tool.slug} tool={tool} />
+                    ))}
+                  </div>
+                </div>
+              );
+            },
+          )}
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-white/60">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-slate-900">
+            Why CodeSplitters?
+          </h2>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <p className="text-sm leading-relaxed text-slate-600">
+              Most browser “devtools” sites bounce you through popups or capture
+              sensitive paste data. CodeSplitters is built for everyday
+              engineering work: clean UI, fast client-side transforms, and SEO
+              pages that stay useful for humans — not just crawlers.
+            </p>
+            <p className="text-sm leading-relaxed text-slate-600">
+              Questions or partnership ideas? Email{" "}
+              <a
+                className="font-medium text-teal-700 hover:underline"
+                href={`mailto:${siteConfig.email}`}
+              >
+                {siteConfig.email}
+              </a>
+              . Read our{" "}
+              <Link href="/privacy" className="font-medium text-teal-700 hover:underline">
+                Privacy Policy
+              </Link>{" "}
+              for AdSense, cookies, and data practices.
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
